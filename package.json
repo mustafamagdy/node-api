@@ -10,7 +10,6 @@
     "start": "./node_modules/nodemon/bin/nodemon.js app/index.js",
     "test": "./node_modules/mocha/bin/mocha test --recursive",
     "docs": "./node_modules/.bin/jsdoc app/ -r -d ./docs --readme ./README.md && open ./docs/index.html",
-    "update:packages": "node wipe-dependencies.js && rmdir /s /q node_modules && npm update --save-dev && npm update --save"
   },
   "author": "Charlie Campanella",
   "license": "MIT",
