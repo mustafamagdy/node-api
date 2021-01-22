@@ -9,9 +9,11 @@ const routes = require('express').Router()
 /* Custom Dependencies */
 const util = require('../util')
 
-const userRoutes = require('./users')
+// const userRoutes = require('./users')
+const systemRoutes = require('./system')
 
-routes.use('/user', userRoutes)
+routes.use('/ping', systemRoutes)
+// routes.use('/user', userRoutes)
 routes.all('*', function(req, res) {
   util.helpers.response(res, 'error', {
     message: "Unauthorized Request"

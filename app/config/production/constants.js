@@ -8,6 +8,7 @@ const constants = {
   developer_name: 'Company, Inc.',
   server: {
     port: process.env.PORT || 3000,
+    useDb: false,
     db: {
       host: process.env.DB_HOST,
       name: process.env.DB_NAME,

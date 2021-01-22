@@ -58,17 +58,19 @@ module.exports = {
     app.use('/', routes)
     app.use(middlewares.errors())
 
-    /* Connects to MongoDB Instance */
-    mongoose.Promise = Promise
-    mongoose.connect('mongodb://'+config.constants.server.db.user+':'+config.constants.server.db.password+'@'+config.constants.server.db.host+'/'+config.constants.server.db.name, {
-      useMongoClient: true,
-      promiseLibrary: global.Promise
-    })
-    var db = mongoose.connection
-    db.on('error', console.error.bind(console, 'connection error:'))
-    db.once('open', () => {
-      console.log('Connected to '+config.constants.server.db.host+'/'+config.constants.server.db.name)
-    })
+    if(config.constants.server.useDb) {
+        /* Connects to MongoDB Instance */
+        mongoose.Promise = Promise
+        mongoose.connect('mongodb://'+config.constants.server.db.user+':'+config.constants.server.db.password+'@'+config.constants.server.db.host+'/'+config.constants.server.db.name, {
+          // useMongoClient: true,
+          promiseLibrary: global.Promise
+        })
+        var db = mongoose.connection
+        db.on('error', console.error.bind(console, 'connection error:'))
+        db.once('open', () => {
+          console.log('Connected to '+config.constants.server.db.host+'/'+config.constants.server.db.name)
+        })
+    }
 
     /* Starts a UNIX socket and listens for connections on the given path. */
     app.listen(config.constants.server.port, function(err) {

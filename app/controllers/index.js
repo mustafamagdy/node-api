@@ -5,7 +5,9 @@
  * @returns {Object} {users}
  */
 /* Custom Dependencies */
-const users = require('./users')
+// const users = require('./users')
+const system = require('./system')
 module.exports = {
-  users
+  // users,
+  system
 }
