@@ -1,3 +1,6 @@
+* Forked from https://github.com/CharlieCamp98/node-express-api-template 
+  - Update packages
+  - Add configuration to mongo db 
 # API Template
 
 An open-source template used to quickly bootstrap a RESTful API powered by Node.js/Express/MongoDB. Feel free to use this template when building your next medium-large scale Node.js project!
